@@ -183,32 +183,3 @@ a:hover {
   align-items: center;
   margin: 10px 0 0 0;
 }
-
-.serverUp {
-  height: 25px;
-  width: 25px;
-  margin-left: 20px;
-  margin-right: 10px;
-  background-color: green;
-  box-shadow: 2px 2px 4px green;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.serverDown {
-  height: 25px;
-  width: 25px;
-  margin-left: 20px;
-  margin-right: 10px;
-  background-color: red;
-  box-shadow: 2px 2px 4px red;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.serverText {
-  color: #e74c3c;
-  font-size: 30px;
-  text-shadow: 1px 1px 4px black;
-  font-weight: 400;
-}

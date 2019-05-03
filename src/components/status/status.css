@@ -1,0 +1,26 @@
+.serverUp {
+  height: 10px;
+  width: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.serverDown {
+  height: 25px;
+  width: 25px;
+  margin-left: 20px;
+  margin-right: 10px;
+  background-color: red;
+  box-shadow: 2px 2px 4px red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.serverText {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
