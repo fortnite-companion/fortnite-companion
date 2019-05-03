@@ -8,7 +8,6 @@
 
 import React, { Component } from "react";
 import "./App.css";
-import Status from "./components/status/status";
 import Weapons from "./components/weapons/weapons";
 import Footer from "./components/footer/footer";
 
