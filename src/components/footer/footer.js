@@ -11,13 +11,13 @@ class Footer extends Component {
         </div>
         <div>
           <p className="disclaimer footer-text">
-            This is service is not associated with Epic Games and is developed
-            without permisson
+            This service is not associated with Epic Games and is developed
+            without their granted permisson
           </p>
         </div>
         <div>
           <p className="footer-text">
-            Created by magnusrambech & thomasrognes @github
+            Devloped by magnusrambech & thomasrognes
           </p>
         </div>
       </div>
