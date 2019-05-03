@@ -9,6 +9,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Status from "./components/statusComponent";
+import Weapons from "./components/weapons";
 
 class App extends Component {
   state = {
@@ -77,6 +78,7 @@ class App extends Component {
     let content = (
       <React.Fragment>
         <Status />
+        <Weapons />
         {/* <select> 
           <option value="pc">PC</option>
           <option value="psn">PSN</option>
@@ -142,7 +144,7 @@ class App extends Component {
               </span>
             </div>
           </div>
-          <a href="/fortnite-stat-tracker/">back</a>
+          <a href="/">back</a>
         </div>
       );
     } else {
