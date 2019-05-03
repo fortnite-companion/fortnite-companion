@@ -10,6 +10,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Status from "./components/status/status";
 import Weapons from "./components/weapons/weapons";
+import Footer from "./components/footer/footer";
 
 class App extends Component {
   state = {
@@ -76,13 +77,7 @@ class App extends Component {
   render() {
     let content = (
       <React.Fragment>
-        <Status />
         <Weapons />
-        {/* <select> 
-          <option value="pc">PC</option>
-          <option value="psn">PSN</option>
-          <option value="xbox">XBOX</option>
-        </select> */}
         <h1 className="title-main">Fortnite Stat Tracker</h1>
         <div className="line" />
         <input
@@ -92,6 +87,7 @@ class App extends Component {
           onChange={this.handleChangeUsername}
         />
         <button onClick={this.handleSubmit}>Track</button>
+        <Footer />
       </React.Fragment>
     );
 
