@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Burbank Big Condensed";
+  src: url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.eot");
+  src: url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/800e985f75a5a56c2f7b4be502d286de.svg#Burbank Big Condensed")
+      format("svg");
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
+  height: 100%;
+  /*background: #34495e; */
+  background-image: url(https://cdn2.unrealengine.com/Fortnite%2FBattle-pass%2Fseason-8%2FBR08_Web_BPLanding_Hero-3840x2160-654d400e12d58c3a97d6e75dc560df6ac46d3ea3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
