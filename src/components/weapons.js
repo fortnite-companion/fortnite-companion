@@ -23,13 +23,18 @@ class Weapons extends Component {
     if (response.ok) {
       const data = await response.text();
       let json = JSON.parse(data);
-      this.setState({ weapons: json });
-      console.log(json);
+
+      let weaponImages = [];
+      for (let i = 0; i < json.weapons.length; i++) {
+        const element = json.weapons[i].images.image;
+        weaponImages.push(element);
+      }
+      console.log(weaponImages);
     }
   };
 
   render() {
-    return <h1> Weapons </h1>;
+    return <h1>hei</h1>;
   }
 }
 
