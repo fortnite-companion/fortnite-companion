@@ -76,7 +76,6 @@ class App extends Component {
   render() {
     let content = (
       <React.Fragment>
-        <Weapons />
         <h1 className="title-main">Fortnite Stat Tracker</h1>
         <div className="line" />
         <input
