@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Weapons extends Component {
   state = {
-    weapons: []
+    weapons: ""
   };
 
   componentDidMount() {
@@ -24,7 +24,11 @@ class Weapons extends Component {
       const data = await response.text();
       let json = JSON.parse(data);
       this.setState({ weapons: json });
-      console.log(json);
+
+      let weapons = json["weapons"];
+      for (let wep in weapons) {
+        console.log(weapons[wep]);
+      }
     }
   };
 

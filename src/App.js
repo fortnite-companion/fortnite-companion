@@ -8,8 +8,8 @@
 
 import React, { Component } from "react";
 import "./App.css";
-import Status from "./components/statusComponent";
-import Weapons from "./components/weapons";
+import Status from "./components/status/status";
+import Weapons from "./components/weapons/weapons";
 
 class App extends Component {
   state = {
@@ -57,7 +57,6 @@ class App extends Component {
       const data = await response.text();
       let json = JSON.parse(data);
       this.setState({ stats: json });
-      console.log(json);
       this.setState({ loading: false });
       if (json.epicName != null) {
         this.setState({ profileFetched: true });
