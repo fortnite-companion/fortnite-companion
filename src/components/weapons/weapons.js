@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./weapons.css";
 
 class Weapons extends Component {
   state = {
@@ -33,7 +34,11 @@ class Weapons extends Component {
   };
 
   render() {
-    return <h1> Weapons </h1>;
+    return (
+      <div className="content">
+        <h1>Weapons</h1>{" "}
+      </div>
+    );
   }
 }
 
