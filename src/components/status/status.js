@@ -38,16 +38,15 @@ class Status extends Component {
           </p>
         </div>
       );
-    } else if (this.state.serverStatus.status === "DOWN") {
+    } else {
       return (
         <div className="serverContent">
           <p className="serverText">
-            <span className="serverDown" /> {this.state.serverStatus.message}
+            <span className="serverDown" />
+            Fortnite is down..
           </p>
         </div>
       );
-    } else {
-      return <p>Fething Status..</p>;
     }
   }
 }

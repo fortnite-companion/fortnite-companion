@@ -4,6 +4,7 @@ import "./index.css";
 import Weapon from "./components/weapons/weapons";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import Profile from "./components/profile/profile";
 import { BrowserRouter, Route } from "react-router-dom";
 
 const routing = (
@@ -11,6 +12,7 @@ const routing = (
     <div style={{ width: 100 + "%", height: 100 + "%" }}>
       <Route exact path="/" component={App} />
       <Route path="/weapons" component={Weapon} />
+      <Route path="/user/:userid" component={Profile} />
     </div>
   </BrowserRouter>
 );
