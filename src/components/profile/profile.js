@@ -1,16 +1,108 @@
 import React, { Component } from "react";
 import "./profile.css";
 class Profile extends Component {
-  state = { params: "" };
+  state = {
+    stats: [],
+    username: "",
+    user_id: "",
+    loading: false,
+    profileFetched: false
+  };
+
+  constructor() {
+    super();
+  }
 
   componentDidMount() {
-    let params = this.props.match.params;
-    this.setState({ params: params });
+    this.getStats();
   }
+
+  fetchparams = async => {
+    let params = this.props.match.params;
+    let uname = params.username;
+    let uid = params.userid;
+    this.setState({ username: uname, user_id: uid });
+  };
+  getStats = async () => {
+    this.setState({ loading: true });
+    await this.fetchparams();
+    let url =
+      "https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats_v2?user_id=" +
+      this.state.user_id;
+    let response = await fetch(url).then(function(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    });
+
+    if (response) {
+      const data = await response.text();
+      let json = JSON.parse(data);
+      this.setState({ stats: json });
+      this.setState({ loading: false });
+      if (json.epicName != null) {
+        this.setState({ profileFetched: true });
+      }
+    }
+  };
+
   render() {
+    if (this.state.loading) {
+      return (
+        <div className="content">
+          <div className="loading">
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+            <div className="obj" />
+          </div>
+        </div>
+      );
+    } else if (this.state.profileFetched) {
+      return (
+        <div className="content">
+          <h1 className="title">
+            Overall data for
+            <span className="username"> {this.state.username}</span>
+          </h1>
+          <div className="line" />
+          <div className="card">
+            <div className="stat-container">
+              <span className="label">
+                Kills
+                <p className="stat">
+                  {this.state.stats.overallData.defaultModes.kills}
+                </p>
+              </span>
+
+              <span className="label">
+                Wins
+                <p className="stat">
+                  {this.state.stats.overallData.defaultModes.placetop1}
+                </p>
+              </span>
+
+              <span className="label">
+                Matches
+                <p className="stat">
+                  {this.state.stats.overallData.defaultModes.matchesplayed}
+                </p>
+              </span>
+            </div>
+          </div>
+          <a href="/">back</a>
+        </div>
+      );
+    }
     return (
       <div className="content">
-        <h1>{this.state.params.username}</h1>
+        <h1>{this.state.username}</h1>
         <a href="/">back</a>
       </div>
     );
