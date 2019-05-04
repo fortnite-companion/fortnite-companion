@@ -7,10 +7,10 @@ class Weapons extends Component {
   };
 
   componentDidMount() {
-    this.getServerStatus();
+    this.getWeapons();
   }
 
-  getServerStatus = async () => {
+  getWeapons = async () => {
     let url =
       "https://fortnite-public-api.theapinetwork.com/prod09/weapons/get";
 
