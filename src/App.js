@@ -9,7 +9,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Footer from "./components/footer/footer";
-
+import { Redirect } from "react-router";
 class App extends Component {
   state = {
     stats: [],
@@ -39,6 +39,25 @@ class App extends Component {
       let json = JSON.parse(data);
       this.setState({ user_id: json.uid });
       this.getStats();
+    }
+  };
+  getUserIdNew = async () => {
+    let url =
+      "https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=" +
+      this.state.username;
+
+    let response = await fetch(url).then(function(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    });
+
+    if (response.ok) {
+      const data = await response.text();
+      let json = JSON.parse(data);
+      let uid = json.uid;
+      return <Redirect push to={"/user/" + uid} />;
     }
   };
   getStats = async () => {
@@ -71,11 +90,16 @@ class App extends Component {
       this.getUserId();
     }
   };
+  handleSubmitNew = event => {
+    if (this.state.username.length > 0) {
+      this.getUserIdNew();
+    }
+  };
 
   render() {
     let content = (
       <React.Fragment>
-        <h1 className="title-main">Fortnite Stat Tracker</h1>
+        <h1 className="title-main">Fortnite Companion</h1>
         <div className="line" />
         <input
           required={true}
@@ -84,6 +108,7 @@ class App extends Component {
           onChange={this.handleChangeUsername}
         />
         <button onClick={this.handleSubmit}>Track</button>
+        <button onClick={this.handleSubmitNew}>track new</button>
         <Footer />
       </React.Fragment>
     );
