@@ -8,7 +8,6 @@
 
 import React, { Component } from "react";
 import "./App.css";
-import Weapons from "./components/weapons/weapons";
 import Footer from "./components/footer/footer";
 
 class App extends Component {
