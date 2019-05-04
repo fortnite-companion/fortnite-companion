@@ -58,7 +58,10 @@ class App extends Component {
       const data = await response.text();
       let json = JSON.parse(data);
       let uid = json.uid;
-      return <Redirect push to={"/user/" + uid} />;
+      let username = this.state.username;
+      if (uid != null) {
+        this.props.history.push("profile/" + username + "/" + uid);
+      }
     }
   };
   getStats = async () => {

@@ -12,7 +12,7 @@ const routing = (
     <div style={{ width: 100 + "%", height: 100 + "%" }}>
       <Route exact path="/" component={App} />
       <Route path="/weapons" component={Weapon} />
-      <Route path="/user/:userid" component={Profile} />
+      <Route path="/profile/:username/:userid" component={Profile} />
     </div>
   </BrowserRouter>
 );
