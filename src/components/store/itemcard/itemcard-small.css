@@ -1,11 +1,11 @@
 @media only screen and (max-width: 600px) {
   .store-image {
-    width: 150px;
+    width: 200px;
   }
   .item {
     font-size: 18px;
   }
   .item-card {
-    max-width: 160px;
+    max-width: 2100px;
   }
 }
