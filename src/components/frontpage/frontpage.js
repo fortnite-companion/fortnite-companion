@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Footer from "../footer/footer";
 import "./frontpage.css";
+import "./frontpage-small.css";
+import Header from "../header/header";
 class Frontpage extends Component {
   state = {};
 
@@ -35,21 +37,30 @@ class Frontpage extends Component {
   handleChangeUsername = event => {
     this.setState({ username: event.target.value });
   };
+  handleKeypress = event => {
+    if (event.key == "Enter") {
+      this.handleSubmit();
+    }
+  };
 
   render() {
     return (
-      <div className="content">
-        <h1 className="title-main">Fortnite Companion</h1>
-        <div className="line" />
-        <input
-          required={true}
-          type="text"
-          placeholder="Enter your Epic account"
-          onChange={this.handleChangeUsername}
-        />
-        <button onClick={this.handleSubmit}>Track</button>
-        <Footer />
-      </div>
+      <React.Fragment>
+        <Header />
+        <div className="content">
+          <h1 className="title-main">Fortnite Companion</h1>
+          <div className="line" />
+          <input
+            required={true}
+            type="text"
+            placeholder="Enter your Epic account"
+            onChange={this.handleChangeUsername}
+            onKeyDown={this.handleKeypress}
+          />
+          <button onClick={this.handleSubmit}>Track</button>
+          <Footer />
+        </div>
+      </React.Fragment>
     );
   }
 }

@@ -5,14 +5,7 @@
 #root {
   height: 100%;
 }
-.content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #34495e8a;
-}
+
 input {
   box-shadow: 2px 2px 5px black;
   border: 0;

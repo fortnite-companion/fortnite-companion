@@ -16,7 +16,7 @@ class Footer extends Component {
           </p>
         </div>
         <div>
-          <p className="footer-text">
+          <p className="footer-text credit">
             Devloped by magnusrambech & thomasrognes
           </p>
         </div>

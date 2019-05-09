@@ -25,6 +25,7 @@ input {
   transition: 0.3s;
   background-color: #ecf0f1;
   margin: 30px 0 0 0;
+  -webkit-user-select: text; /* MUST BE PRESENT TO WORK ON IPHONES*/
 }
 input:focus {
   opacity: 1;

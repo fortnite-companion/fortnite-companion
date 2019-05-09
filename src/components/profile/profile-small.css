@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+  .title,
+  .username {
+    font-size: 40px;
+  }
+  .stat {
+    font-size: 26px;
+  }
+  .label {
+    font-size: 36px;
+  }
+  .card {
+    width: 100%;
+  }
+}

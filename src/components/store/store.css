@@ -1,0 +1,22 @@
+.daily-box {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.title-store {
+  margin: 0;
+}
+.line-store {
+  margin: 0 0 10px 0;
+}
+.content-store {
+  height: fit-content;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #34495e8a;
+}

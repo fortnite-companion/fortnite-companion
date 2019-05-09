@@ -1,0 +1,16 @@
+@media only screen and (max-width: 600px) {
+  .title-main {
+    font-size: 40px;
+  }
+  input {
+    -webkit-user-select: text; /* MUST BE PRESENT TO WORK ON IPHONES*/
+  }
+
+  .footer > div > p {
+    font-size: 10px;
+  }
+  .serverText,
+  .credit {
+    display: none;
+  }
+}

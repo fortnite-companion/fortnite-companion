@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import Frontpage from "./components/frontpage/frontpage";
 import Profile from "./components/profile/profile";
 import { BrowserRouter, HashRouter, Route } from "react-router-dom";
+import Store from "./components/store/store";
 
 const routing = (
   <HashRouter>
@@ -14,6 +15,7 @@ const routing = (
       <Route exact path="/" component={Frontpage} />
       <Route path="/weapons" component={Weapon} />
       <Route path="/profile/:username/:userid" component={Profile} />
+      <Route path="/store" component={Store} />
     </div>
   </HashRouter>
 );

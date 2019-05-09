@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./weapons.css";
+import Header from "../header/header";
 
 class Weapons extends Component {
   state = {
@@ -43,9 +44,12 @@ class Weapons extends Component {
 
   render() {
     return (
-      <div className="content">
-        <h1>Weapons</h1>
-      </div>
+      <React.Fragment>
+        <Header />
+        <div className="content">
+          <h1>Weapons</h1>
+        </div>
+      </React.Fragment>
     );
   }
 }
