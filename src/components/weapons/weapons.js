@@ -4,7 +4,8 @@ import Header from "../header/header";
 
 class Weapons extends Component {
   state = {
-    weapons: ""
+    weapons: "",
+    weaponTest: []
   };
 
   componentDidMount() {
@@ -25,31 +26,29 @@ class Weapons extends Component {
     if (response.ok) {
       const data = await response.text();
       let json = JSON.parse(data);
-
-      let weaponImages = [];
-      for (let i = 0; i < json.weapons.length; i++) {
-        const element = json.weapons[i].images.image;
-        weaponImages.push(element);
-      }
-      console.log(weaponImages);
-
       this.setState({ weapons: json });
 
+      let activeWeapons = [];
       let weapons = json["weapons"];
       for (let wep in weapons) {
-        console.log(weapons[wep]);
+        activeWeapons.push(weapons[wep]);
       }
+      console.log(activeWeapons);
+      this.setState({ weaponTest: activeWeapons });
     }
   };
 
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <div className="content">
-          <h1>Weapons</h1>
-        </div>
-      </React.Fragment>
+      <div className="content">
+        <ul>
+          {this.state.weaponTest.map(wep => (
+            <div>
+              <p>{wep.name}</p>
+            </div>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
