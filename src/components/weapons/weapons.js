@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "./weapons.css";
 import WeaponCard from "./weaponcard/weaponcard";
 import Header from "../header/header";
+import Loading from "../loading/loading";
 
 class Weapons extends Component {
   state = {
     weapons: "",
-    weaponToShow: []
+    weaponToShow: [],
+    isLoading: true
   };
 
   componentDidMount() {
@@ -36,10 +38,22 @@ class Weapons extends Component {
       }
       console.log(activeWeapons);
       this.setState({ weaponToShow: activeWeapons });
+
+      if (json != null) {
+        this.setState({ isLoading: false });
+      }
     }
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <React.Fragment>
+          <Header />
+          <Loading />
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
         <Header />

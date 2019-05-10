@@ -9,6 +9,7 @@
   padding: 5px;
   min-width: 260px;
   max-width: 260px;
+  animation: fadein 0.5s;
 }
 
 .weapon-name {

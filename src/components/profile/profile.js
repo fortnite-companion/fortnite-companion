@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./profile.css";
 import "./profile-small.css";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 import Loading from "../loading/loading";
 class Profile extends Component {
   state = {
@@ -57,6 +58,7 @@ class Profile extends Component {
         <React.Fragment>
           <Header />
           <Loading />
+          <Footer />
         </React.Fragment>
       );
     } else if (this.state.profileFetched) {
@@ -97,6 +99,7 @@ class Profile extends Component {
               <Link to="/">back</Link>
             </div>
           </div>
+          <Footer />
         </React.Fragment>
       );
     }
@@ -104,6 +107,7 @@ class Profile extends Component {
       <div className="content">
         <h1>{this.state.username}</h1>
         <Link to="/">back</Link>
+        <Footer />
       </div>
     );
   }
