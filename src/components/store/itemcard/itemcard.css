@@ -1,4 +1,5 @@
 .item-card {
+  animation: fadein 1s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,11 +8,10 @@
   margin: 0 5px 10px 0;
   box-shadow: 1px 1px 5px black;
   padding: 5px;
-  min-width: 260px;
-  max-width: 260px;
+  max-width: 160px;
 }
 .store-image {
-  max-width: 250px;
+  max-width: 150px;
   box-shadow: 1px 1px 3px black;
 }
 .vbucks-item-card {

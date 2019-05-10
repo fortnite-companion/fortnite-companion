@@ -13,13 +13,13 @@ class Header extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/store" className="link-text">
-            Daily Store
+          <Link to="/store" className="link-text locked">
+            Daily Store (Coming Soon!)
           </Link>
         </div>
         <div>
-          <Link to="/weapons" className="link-text">
-            Weapons
+          <Link to="/weapons" className="link-text locked">
+            Weapons (Coming Soon!)
           </Link>
         </div>
         <div className="locked">

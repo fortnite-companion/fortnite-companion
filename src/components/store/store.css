@@ -1,6 +1,5 @@
 .store-box {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 50%;
   flex-wrap: wrap;
@@ -25,9 +24,14 @@
 }
 .content-store-wrapper {
   justify-content: unset;
-  height: fit-content;
+  height: fit-content !important;
 }
 .store-category {
   width: 100%;
   text-align: center;
+}
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

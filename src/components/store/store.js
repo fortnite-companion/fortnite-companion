@@ -5,6 +5,7 @@ import { tsNumberKeyword } from "@babel/types";
 import ItemCard from "./itemcard/itemcard";
 
 import "./store.css";
+import Timer from "./timer/timer";
 class Store extends Component {
   state = {
     isLoading: true,
@@ -71,30 +72,35 @@ class Store extends Component {
             <div className="store-box featured-box">
               <div className="store-category">
                 <h1 className="title title-store">Featured</h1>
+                <span className="timer">Exclusive deals</span>
                 <div className="line line-store" />
               </div>
-
-              {this.state.featuredItems.map(item => (
-                <ItemCard
-                  vbucks={this.state.store.vbucks}
-                  key={item.itemid}
-                  item={item}
-                />
-              ))}
+              <div className="item-list">
+                {this.state.featuredItems.map(item => (
+                  <ItemCard
+                    vbucks={this.state.store.vbucks}
+                    key={item.itemid}
+                    item={item}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="store-box daily-box">
               <div className="store-category">
                 <h1 className="title title-store">Daily Store</h1>
+                <Timer />
                 <div className="line line-store" />
               </div>
-              {this.state.itemsArray.map(item => (
-                <ItemCard
-                  vbucks={this.state.store.vbucks}
-                  key={item.itemid}
-                  item={item}
-                />
-              ))}
+              <div className="item-list">
+                {this.state.itemsArray.map(item => (
+                  <ItemCard
+                    vbucks={this.state.store.vbucks}
+                    key={item.itemid}
+                    item={item}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

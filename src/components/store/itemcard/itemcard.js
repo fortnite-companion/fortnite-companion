@@ -5,9 +5,7 @@ import "./itemcard-small.css";
 class ItemCard extends Component {
   state = {};
 
-  componentDidMount() {
-    console.log(this.props.item);
-  }
+  componentDidMount() {}
   render() {
     if (this.state.item != null) {
       return <Loading />;
