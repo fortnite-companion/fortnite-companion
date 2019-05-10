@@ -64,36 +64,38 @@ class Profile extends Component {
         <React.Fragment>
           <Header />
           <div className="content">
-            <h1 className="title">
-              Overall data for
-              <span className="username"> {this.state.username}</span>
-            </h1>
-            <div className="line" />
-            <div className="card">
-              <div className="stat-container">
-                <span className="label">
-                  Kills
-                  <p className="stat">
-                    {this.state.stats.overallData.defaultModes.kills}
-                  </p>
-                </span>
+            <div className="content-profile">
+              <h1 className="title">
+                Overall data for
+                <span className="username"> {this.state.username}</span>
+              </h1>
+              <div className="line" />
+              <div className="card">
+                <div className="stat-container">
+                  <span className="label">
+                    Kills
+                    <p className="stat">
+                      {this.state.stats.overallData.defaultModes.kills}
+                    </p>
+                  </span>
 
-                <span className="label">
-                  Wins
-                  <p className="stat">
-                    {this.state.stats.overallData.defaultModes.placetop1}
-                  </p>
-                </span>
+                  <span className="label">
+                    Wins
+                    <p className="stat">
+                      {this.state.stats.overallData.defaultModes.placetop1}
+                    </p>
+                  </span>
 
-                <span className="label">
-                  Matches
-                  <p className="stat">
-                    {this.state.stats.overallData.defaultModes.matchesplayed}
-                  </p>
-                </span>
+                  <span className="label">
+                    Matches
+                    <p className="stat">
+                      {this.state.stats.overallData.defaultModes.matchesplayed}
+                    </p>
+                  </span>
+                </div>
               </div>
+              <Link to="/">back</Link>
             </div>
-            <a href="/">back</a>
           </div>
         </React.Fragment>
       );

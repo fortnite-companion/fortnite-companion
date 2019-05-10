@@ -13,6 +13,13 @@
   align-items: center;
   background: #34495e8a;
 }
+.content-frontpage {
+  animation: fadein 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 input {
   box-shadow: 2px 2px 5px black;
@@ -69,4 +76,12 @@ button:focus {
     to(#0000ff00),
     color-stop(50%, #ecf0f1)
   );
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
