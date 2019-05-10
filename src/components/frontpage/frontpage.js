@@ -96,7 +96,7 @@ class Frontpage extends Component {
                   onClick={this.handleClickRecent}
                   data-id={username}
                 >
-                  {username + ",\t"}
+                  {username + " \t"}
                 </span>
               ))}
             </div>
