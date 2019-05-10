@@ -5,7 +5,7 @@ import { tsNumberKeyword } from "@babel/types";
 import ItemCard from "./itemcard/itemcard";
 import "./store.css";
 class Store extends Component {
-  state = { isLoading: true, store: "", itemsArray: [] };
+  state = { isLoading: true, store: "", itemsArray: [], featuredItems: [] };
 
   componentDidMount() {
     this.getCurrentStore();
@@ -34,10 +34,18 @@ class Store extends Component {
   createItemArray = () => {
     let items = this.state.store.items;
     let newItemsArray = [];
+    let newFeaturedItems = [];
     for (let item in items) {
-      newItemsArray.push(items[item]);
+      if (items[item].featured === 1) {
+        newFeaturedItems.push(items[item]);
+      } else {
+        newItemsArray.push(items[item]);
+      }
     }
-    this.setState({ itemsArray: newItemsArray });
+    this.setState({
+      itemsArray: newItemsArray,
+      featuredItems: newFeaturedItems
+    });
   };
   render() {
     if (this.state.isLoading) {
@@ -51,17 +59,36 @@ class Store extends Component {
     return (
       <React.Fragment>
         <Header />
-        <div className="content content-store">
-          <h1 className="title title-store">Daily Store</h1>
-          <div className="line line-store" />
-          <div className="daily-box">
-            {this.state.itemsArray.map(item => (
-              <ItemCard
-                vbucks={this.state.store.vbucks}
-                key={item.itemid}
-                item={item}
-              />
-            ))}
+        <div className="content content-store-wrapper">
+          <div className="content-store">
+            <div className="store-box featured-box">
+              <div className="store-category">
+                <h1 className="title title-store">Featured</h1>
+                <div className="line line-store" />
+              </div>
+
+              {this.state.featuredItems.map(item => (
+                <ItemCard
+                  vbucks={this.state.store.vbucks}
+                  key={item.itemid}
+                  item={item}
+                />
+              ))}
+            </div>
+
+            <div className="store-box daily-box">
+              <div className="store-category">
+                <h1 className="title title-store">Daily Store</h1>
+                <div className="line line-store" />
+              </div>
+              {this.state.itemsArray.map(item => (
+                <ItemCard
+                  vbucks={this.state.store.vbucks}
+                  key={item.itemid}
+                  item={item}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </React.Fragment>

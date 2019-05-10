@@ -1,22 +1,32 @@
-.daily-box {
-  width: 80%;
+.store-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
   flex-wrap: wrap;
 }
 
 .title-store {
   margin: 0;
+  width: 100%;
 }
 .line-store {
+  width: 100%;
   margin: 0 0 10px 0;
 }
 .content-store {
-  height: fit-content;
-  padding-top: 60px;
+  width: 90%;
+  box-shadow: 1px 1px 6px black;
+  margin-top: 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: fit-content;
   background: #34495e8a;
+}
+.content-store-wrapper {
+  justify-content: unset;
+  height: fit-content;
+}
+.store-category {
+  width: 100%;
+  text-align: center;
 }

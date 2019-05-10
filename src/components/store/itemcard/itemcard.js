@@ -16,7 +16,7 @@ class ItemCard extends Component {
       <div className="item-card">
         <img
           className="store-image"
-          src={this.props.item.item.images.information}
+          src={this.props.item.item.images.background}
         />
         <h1 className="item-name item">{this.props.item.item.name}</h1>
         {/*  <p className="item-desc item">{this.props.item.item.description}</p> */}
