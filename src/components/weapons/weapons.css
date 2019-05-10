@@ -1,0 +1,36 @@
+.weapon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
+
+.content-weapons-wrapper {
+  justify-content: unset;
+  height: unset !important;
+}
+
+.content-weapons {
+  width: 90%;
+  margin-top: 60px;
+  box-shadow: 1px 1px 6px black;
+  display: flex;
+  height: fit-content;
+  background: #34495e8a;
+}
+
+.weapons {
+  width: 100%;
+}
+
+.line-weapon {
+  width: 100%;
+  display: inline-block;
+}
+
+.title-weapon {
+  margin: 0;
+  width: 100%;
+}

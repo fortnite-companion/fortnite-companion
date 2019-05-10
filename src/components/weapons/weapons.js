@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./weapons.css";
+import WeaponCard from "./weaponcard/weaponcard";
 import Header from "../header/header";
 
 class Weapons extends Component {
   state = {
     weapons: "",
-    weaponTest: []
+    weaponToShow: []
   };
 
   componentDidMount() {
@@ -34,21 +35,31 @@ class Weapons extends Component {
         activeWeapons.push(weapons[wep]);
       }
       console.log(activeWeapons);
-      this.setState({ weaponTest: activeWeapons });
+      this.setState({ weaponToShow: activeWeapons });
     }
   };
 
   render() {
     return (
-      <div className="content">
-        <ul>
-          {this.state.weaponTest.map(wep => (
-            <div>
-              <p>{wep.name}</p>
+      <React.Fragment>
+        <Header />
+        <div className="content content-weapons-wrapper">
+          <div className="content-weapons">
+            <div className="weapon-box">
+              <h1 className="title title-weapon">Weapons</h1>
+              <div className="line line-weapon" />
+              <div className="weapons">
+                {this.state.weaponToShow.map(wep => (
+                  <WeaponCard
+                    weaponName={wep.name}
+                    weaponImage={wep.images.image}
+                  />
+                ))}
+              </div>
             </div>
-          ))}
-        </ul>
-      </div>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

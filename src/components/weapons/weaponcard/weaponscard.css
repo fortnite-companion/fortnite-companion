@@ -1,0 +1,21 @@
+.weapon-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #34495e8a;
+  margin: 0 5px 10px 0;
+  box-shadow: 1px 1px 5px black;
+  padding: 5px;
+  min-width: 260px;
+  max-width: 260px;
+}
+
+.weapon-name {
+  color: white;
+}
+
+.weapon-image {
+  max-width: 200px;
+  max-height: 100px;
+}
