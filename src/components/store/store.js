@@ -3,9 +3,16 @@ import Header from "../header/header";
 import Loading from "../loading/loading";
 import { tsNumberKeyword } from "@babel/types";
 import ItemCard from "./itemcard/itemcard";
+
 import "./store.css";
 class Store extends Component {
-  state = { isLoading: true, store: "", itemsArray: [], featuredItems: [] };
+  state = {
+    isLoading: true,
+    store: "",
+    itemsArray: [],
+    featuredItems: [],
+    isVisible: "hidden"
+  };
 
   componentDidMount() {
     this.getCurrentStore();
@@ -26,7 +33,7 @@ class Store extends Component {
       this.setState({ loading: false });
       if (json != null) {
         this.createItemArray();
-        this.setState({ isLoading: false });
+        this.setState({ isLoading: false, isVisible: "visible" });
       }
     }
   };
@@ -60,7 +67,7 @@ class Store extends Component {
       <React.Fragment>
         <Header />
         <div className="content content-store-wrapper">
-          <div className="content-store">
+          <div className={"content-store " + this.state.isVisible}>
             <div className="store-box featured-box">
               <div className="store-category">
                 <h1 className="title title-store">Featured</h1>

@@ -15,6 +15,7 @@
   margin: 0 0 10px 0;
 }
 .content-store {
+  animation: fadein 0.5s;
   width: 90%;
   box-shadow: 1px 1px 6px black;
   margin-top: 60px;

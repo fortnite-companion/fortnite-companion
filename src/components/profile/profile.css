@@ -1,0 +1,9 @@
+.content-profile {
+  animation: fadein 0.5s;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  width: 100%;
+}

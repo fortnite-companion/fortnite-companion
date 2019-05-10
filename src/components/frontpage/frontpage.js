@@ -4,10 +4,10 @@ import "./frontpage.css";
 import "./frontpage-small.css";
 import Header from "../header/header";
 class Frontpage extends Component {
-  state = {};
+  state = { username: "" };
 
   handleSubmit = event => {
-    if (this.state.username.length > 0) {
+    if (this.state.username.length != "") {
       this.getUserId();
     }
   };
@@ -48,17 +48,19 @@ class Frontpage extends Component {
       <React.Fragment>
         <Header />
         <div className="content">
-          <h1 className="title-main">Fortnite Companion</h1>
-          <div className="line" />
-          <input
-            required={true}
-            type="text"
-            placeholder="Enter your Epic account"
-            onChange={this.handleChangeUsername}
-            onKeyDown={this.handleKeypress}
-          />
-          <button onClick={this.handleSubmit}>Track</button>
-          <Footer />
+          <div className="content-frontpage">
+            <h1 className="title-main">Fortnite Companion</h1>
+            <div className="line" />
+            <input
+              required={true}
+              type="text"
+              placeholder="Enter your Epic account"
+              onChange={this.handleChangeUsername}
+              onKeyDown={this.handleKeypress}
+            />
+            <button onClick={this.handleSubmit}>Track</button>
+            <Footer />
+          </div>
         </div>
       </React.Fragment>
     );
