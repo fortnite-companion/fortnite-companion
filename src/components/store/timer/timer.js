@@ -52,10 +52,11 @@ class Timer extends Component {
           New deals in
           {" " +
             this.state.time.h +
-            ":" +
+            "h " +
             this.state.time.m +
-            ":" +
-            this.state.time.s}
+            "m " +
+            this.state.time.s +
+            "s"}
         </span>
       );
     }
