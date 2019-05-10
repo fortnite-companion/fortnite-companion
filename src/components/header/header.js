@@ -17,9 +17,9 @@ class Header extends Component {
             Daily Store
           </Link>
         </div>
-        <div className="locked">
-          <Link to="/weapons" className="link-text locked">
-            Weapons (Coming Soon!)
+        <div>
+          <Link to="/weapons" className="link-text">
+            Weapons
           </Link>
         </div>
         <div className="locked">

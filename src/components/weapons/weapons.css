@@ -13,6 +13,7 @@
 }
 
 .content-weapons {
+  animation: fadein 0.5s;
   width: 90%;
   margin-top: 60px;
   box-shadow: 1px 1px 6px black;
@@ -23,6 +24,10 @@
 
 .weapons {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  justify-content: center;
 }
 
 .line-weapon {
@@ -33,4 +38,5 @@
 .title-weapon {
   margin: 0;
   width: 100%;
+  text-align: center;
 }

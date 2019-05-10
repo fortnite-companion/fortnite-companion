@@ -10,7 +10,7 @@ class WeaponCard extends Component {
 
   render() {
     return (
-      <div className="weapon-card">
+      <div className={this.props.rarity + " weapon-card"}>
         <h1 className="weapon-name">{this.props.weaponName}</h1>
         <img className="weapon-image" src={this.props.weaponImage} />
       </div>

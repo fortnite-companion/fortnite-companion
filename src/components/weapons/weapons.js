@@ -53,6 +53,7 @@ class Weapons extends Component {
                   <WeaponCard
                     weaponName={wep.name}
                     weaponImage={wep.images.image}
+                    rarity={wep.rarity}
                   />
                 ))}
               </div>
