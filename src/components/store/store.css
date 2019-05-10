@@ -1,8 +1,5 @@
 .store-box {
-  display: flex;
-  align-items: center;
   width: 50%;
-  flex-wrap: wrap;
 }
 
 .title-store {
@@ -24,7 +21,7 @@
 }
 .content-store-wrapper {
   justify-content: unset;
-  height: fit-content !important;
+  height: 100%;
 }
 .store-category {
   width: 100%;

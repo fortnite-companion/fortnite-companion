@@ -23,7 +23,7 @@ class Timer extends Component {
     return obj;
   }
   startTimer = () => {
-    this.setState({ seconds: this.secondsUntilMidnight() });
+    this.setState({ seconds: this.props.seconds });
     this.tick();
   };
 
@@ -37,19 +37,20 @@ class Timer extends Component {
       time: this.secondsToTime(secondsDecremented)
     });
   };
-  secondsUntilMidnight = () => {
-    var midnight = new Date();
-    midnight.setHours(24);
-    midnight.setMinutes(0);
-    midnight.setSeconds(0);
-    midnight.setMilliseconds(0);
-    return (midnight.getTime() - new Date().getTime()) / 1000;
-  };
+
   render() {
     if (this.state.time.h != null) {
+      if (this.state.time.h === 0) {
+        return (
+          <span className="timer">
+            {this.props.text}
+            {" " + this.state.time.m + "m " + this.state.time.s + "s"}
+          </span>
+        );
+      }
       return (
         <span className="timer">
-          New deals in
+          {this.props.text}
           {" " +
             this.state.time.h +
             "h " +

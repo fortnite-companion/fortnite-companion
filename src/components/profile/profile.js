@@ -5,13 +5,15 @@ import "./profile-small.css";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Loading from "../loading/loading";
+import Timer from "../store/timer/timer";
 class Profile extends Component {
   state = {
     stats: [],
     username: "",
     user_id: "",
     loading: false,
-    profileFetched: false
+    profileFetched: false,
+    updateTimerSeconds: 120
   };
 
   constructor() {
@@ -20,7 +22,9 @@ class Profile extends Component {
 
   componentDidMount() {
     this.getStats();
+    setInterval(this.getStats, this.state.updateTimerSeconds * 1000);
   }
+  componentWillUnmount() {}
 
   fetchparams = async => {
     let params = this.props.match.params;
@@ -97,6 +101,10 @@ class Profile extends Component {
                 </div>
               </div>
               <Link to="/">back</Link>
+              <Timer
+                text={"Updating in "}
+                seconds={this.state.updateTimerSeconds}
+              />
             </div>
           </div>
           <Footer />

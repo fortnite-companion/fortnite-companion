@@ -3,8 +3,8 @@ import Header from "../header/header";
 import Loading from "../loading/loading";
 import { tsNumberKeyword } from "@babel/types";
 import ItemCard from "./itemcard/itemcard";
-
 import "./store.css";
+import "./store-small.css";
 import Timer from "./timer/timer";
 class Store extends Component {
   state = {
@@ -18,6 +18,14 @@ class Store extends Component {
   componentDidMount() {
     this.getCurrentStore();
   }
+  secondsUntilMidnight = () => {
+    var midnight = new Date();
+    midnight.setHours(24);
+    midnight.setMinutes(0);
+    midnight.setSeconds(0);
+    midnight.setMilliseconds(0);
+    return (midnight.getTime() - new Date().getTime()) / 1000;
+  };
   getCurrentStore = async () => {
     let url =
       "https://fortnite-public-api.theapinetwork.com/prod09/store/get?language=en";
@@ -89,7 +97,10 @@ class Store extends Component {
             <div className="store-box daily-box">
               <div className="store-category">
                 <h1 className="title title-store">Daily Store</h1>
-                <Timer />
+                <Timer
+                  text={"New deals in "}
+                  seconds={this.secondsUntilMidnight()}
+                />
                 <div className="line line-store" />
               </div>
               <div className="item-list">

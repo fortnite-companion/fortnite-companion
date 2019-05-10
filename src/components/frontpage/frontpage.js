@@ -4,7 +4,11 @@ import "./frontpage.css";
 import "./frontpage-small.css";
 import Header from "../header/header";
 class Frontpage extends Component {
-  state = { username: "" };
+  state = { username: "", recentlyTracked: [] };
+
+  componentDidMount() {
+    this.loadRecent();
+  }
 
   handleSubmit = event => {
     if (this.state.username.length != "") {
@@ -30,6 +34,7 @@ class Frontpage extends Component {
       let uid = json.uid;
       let username = this.state.username;
       if (uid != null) {
+        this.addToRecent(username);
         this.props.history.push("profile/" + username + "/" + uid);
       }
     }
@@ -40,6 +45,32 @@ class Frontpage extends Component {
   handleKeypress = event => {
     if (event.key == "Enter") {
       this.handleSubmit();
+    }
+  };
+  handleClickRecent = async event => {
+    let newName = event.currentTarget.dataset.id;
+    await this.setState({ username: newName });
+    this.handleSubmit();
+  };
+  addToRecent = username => {
+    let recent = this.state.recentlyTracked;
+    if (!recent.includes(username)) {
+      if (recent.length >= 5) {
+        recent.shift();
+      }
+      recent.push(username);
+      localStorage.setItem("recentlyTracked", JSON.stringify(recent));
+    }
+  };
+  clearRecent = () => {
+    let recent = [];
+    localStorage.setItem("recentlyTracked", JSON.stringify(recent));
+    this.setState({ recentlyTracked: recent });
+  };
+  loadRecent = () => {
+    let recent = localStorage.getItem("recentlyTracked");
+    if (recent != null) {
+      this.setState({ recentlyTracked: JSON.parse(recent) });
     }
   };
 
@@ -58,6 +89,17 @@ class Frontpage extends Component {
               onChange={this.handleChangeUsername}
               onKeyDown={this.handleKeypress}
             />
+            <div className="recent-container">
+              {this.state.recentlyTracked.map(username => (
+                <span
+                  className="recent"
+                  onClick={this.handleClickRecent}
+                  data-id={username}
+                >
+                  {username + ",\t"}
+                </span>
+              ))}
+            </div>
             <button onClick={this.handleSubmit}>Track</button>
             <Footer />
           </div>
