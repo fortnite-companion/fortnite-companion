@@ -19,10 +19,10 @@ class Header extends Component {
         </div>
         <div>
           <Link to="/weapons" className="link-text">
-            Weapons
+            Weapons (Coming Soon!)
           </Link>
         </div>
-        <div className="locked">
+        <div>
           <Link to="/challenges" className="link-text locked">
             Challenges (Coming Soon!)
           </Link>

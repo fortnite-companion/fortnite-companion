@@ -24,8 +24,15 @@ class Store extends Component {
     midnight.setMinutes(0);
     midnight.setSeconds(0);
     midnight.setMilliseconds(0);
-    return (midnight.getTime() - new Date().getTime()) / 1000;
+
+    //Convert to UTC time to match up with store update at 02:00, not 00:00
+    var now = new Date();
+    console.log(now.getTimezoneOffset());
+    now.setTime(now.getTime() + now.getTimezoneOffset() * 60 * 1000);
+
+    return (midnight.getTime() - now.getTime()) / 1000;
   };
+
   getCurrentStore = async () => {
     let url =
       "https://fortnite-public-api.theapinetwork.com/prod09/store/get?language=en";
@@ -39,10 +46,9 @@ class Store extends Component {
       const data = await response.text();
       let json = JSON.parse(data);
       this.setState({ store: json });
-      this.setState({ loading: false });
       if (json != null) {
         this.createItemArray();
-        this.setState({ isLoading: false, isVisible: "visible" });
+        this.setState({ store: json, isLoading: false, isVisible: "visible" });
       }
     }
   };
@@ -100,7 +106,7 @@ class Store extends Component {
                 <Timer
                   text={"New deals in "}
                   seconds={this.secondsUntilMidnight()}
-                />
+                />{" "}
                 <div className="line line-store" />
               </div>
               <div className="item-list">

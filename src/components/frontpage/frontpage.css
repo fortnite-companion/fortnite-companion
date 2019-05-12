@@ -83,7 +83,7 @@ button:focus {
   display: inline;
   color: #e74c3c;
   text-shadow: 1px 1px 2px black;
-  font-size: 16px;
+  font-size: 20px;
 }
 .recent:hover {
   color: white;
