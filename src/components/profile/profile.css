@@ -1,5 +1,4 @@
 .content-profile {
-  margin-top: 40px;
   min-height: 100%;
   padding-top: 10px;
   animation: fadein 0.5s;
@@ -10,7 +9,7 @@
   background: #34495e8a;
 }
 .content-profile-wrapper {
-  justify-content: unset;
+  justify-content: center;
   min-height: 100%;
 }
 .card {

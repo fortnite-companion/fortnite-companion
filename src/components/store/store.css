@@ -16,12 +16,10 @@
   padding-top: 10px;
   width: 90%;
   box-shadow: 1px 1px 6px black;
-  margin-top: 40px;
   display: flex;
   background: #34495e8a;
 }
 .content-store-wrapper {
-  justify-content: unset;
   min-height: 100% !important;
 }
 .store-category {

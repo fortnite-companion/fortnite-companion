@@ -15,7 +15,6 @@
 .content-weapons {
   animation: fadein 0.5s;
   width: 90%;
-  margin-top: 40px;
   box-shadow: 1px 1px 6px black;
   display: flex;
   height: fit-content;
