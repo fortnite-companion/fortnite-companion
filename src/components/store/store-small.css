@@ -1,0 +1,20 @@
+@media only screen and (max-width: 600px) {
+  .content-store {
+    width: 100%;
+    flex-direction: column;
+  }
+  .store-box {
+    width: 100%;
+  }
+  .content-store-wrapper {
+    height: fit-content;
+  }
+  .item-list {
+    display: flex;
+    flex: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+}
