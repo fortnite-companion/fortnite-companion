@@ -7,6 +7,7 @@ import Footer from "../footer/footer";
 import Loading from "../loading/loading";
 import Timer from "../store/timer/timer";
 import PlatformButton from "./platformButton/platformButton";
+
 class Profile extends Component {
   state = {
     stats: {},
@@ -26,7 +27,7 @@ class Profile extends Component {
   componentDidMount() {
     this.getStats();
     this.setState({ currentDevice: this.setInitalCurrentDevice() });
-    /* setInterval(this.getStats, this.state.updateTimerSeconds * 1000); */
+    setInterval(this.getStats, this.state.updateTimerSeconds * 1000);
   }
   componentWillUnmount() {}
 

@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*background: #34495e; */
-  background-image: url(https://cdn2.unrealengine.com/Fortnite%2FBattle-pass%2Fseason-8%2FBR08_Web_BPLanding_Hero-3840x2160-654d400e12d58c3a97d6e75dc560df6ac46d3ea3.jpg);
+  background-image: url("./images/fnitebg.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
