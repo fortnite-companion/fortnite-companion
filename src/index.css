@@ -20,7 +20,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*background: #34495e; */
   background-image: url("./images/fnitebg.jpg");
   background-size: cover;
   background-attachment: fixed;

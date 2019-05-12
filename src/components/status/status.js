@@ -14,7 +14,7 @@ class Status extends Component {
     let url =
       "https://fortnite-public-api.theapinetwork.com/prod09/status/fortnite_server_status";
 
-    let response = await fetch(url).then(function(response) {
+    let response = await fetch(url).catch(function(response) {
       if (!response.ok) {
         throw Error(response.statusText);
       }

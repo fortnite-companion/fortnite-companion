@@ -107,163 +107,179 @@ class Profile extends Component {
           <Header />
           <div className="content content-profile-wrapper">
             <div className="content-profile">
-              <h1 className="username"> {this.state.username}</h1>
-              <Timer
-                text={"Updating in "}
-                seconds={this.state.updateTimerSeconds}
-              />
-              <div className="statbox overall-box">
-                <div className="card">
-                  <h1 className="category">Overall</h1>
-                  <div className="line-small-red" />
-                  <div className="stat-container">
-                    <h1 className="label">
-                      Kills
-                      <p className="stat">
-                        {this.state.stats.overallData.defaultModes.kills}
-                      </p>
-                    </h1>
+              <div className="top">
+                <h1 className="username">{this.state.username}</h1>
+                <div className="line-red" />
+                <Timer
+                  text={"Updating in "}
+                  seconds={this.state.updateTimerSeconds}
+                />
+                <div className="statbox overall-box">
+                  <div className="card">
+                    <h1 className="overall category">Overall</h1>
+                    <div className="line-small-red overall-line" />
+                    <div className="stat-container">
+                      <h1 className="label">
+                        Kills
+                        <p className="stat">
+                          {this.state.stats.overallData.defaultModes.kills}
+                        </p>
+                      </h1>
 
-                    <span className="label">
-                      Wins
-                      <p className="stat">
-                        {this.state.stats.overallData.defaultModes.placetop1}
-                      </p>
-                    </span>
+                      <span className="label">
+                        Wins
+                        <p className="stat">
+                          {this.state.stats.overallData.defaultModes.placetop1}
+                        </p>
+                      </span>
 
-                    <span className="label">
-                      Matches
-                      <p className="stat">
-                        {
-                          this.state.stats.overallData.defaultModes
-                            .matchesplayed
-                        }
-                      </p>
-                    </span>
+                      <span className="label">
+                        Matches
+                        <p className="stat">
+                          {
+                            this.state.stats.overallData.defaultModes
+                              .matchesplayed
+                          }
+                        </p>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="statbox platform-box">
-                <div className="platform-selector">
-                  {this.state.devices.map(device => (
-                    <PlatformButton
-                      key={device}
-                      platform={device}
-                      handleClick={() => this.setCurrentDevice(device)}
-                    />
-                  ))}
+              <div className="sides-container">
+                <div className="leftSide">
+                  <div className="statbox platform-box">
+                    <div className="platform-selector">
+                      {this.state.devices.map(device => (
+                        <PlatformButton
+                          key={device}
+                          platform={device}
+                          handleClick={() => this.setCurrentDevice(device)}
+                        />
+                      ))}
+                    </div>
+                    {this.state.currentDevice.defaultsolo && (
+                      <React.Fragment>
+                        <div className="card">
+                          <h1 className="category">Solo</h1>
+                          <div className="line-small-red" />
+                          <div className="stat-container">
+                            <h1 className="label">
+                              Kills
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsolo.default
+                                    .kills
+                                }
+                              </p>
+                            </h1>
+
+                            <span className="label">
+                              Wins
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsolo.default
+                                    .placetop1
+                                }
+                              </p>
+                            </span>
+
+                            <span className="label">
+                              Matches
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsolo.default
+                                    .matchesplayed
+                                }
+                              </p>
+                            </span>
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    )}
+                    {this.state.currentDevice.defaultduo && (
+                      <React.Fragment>
+                        <div className="card">
+                          <h1 className="category">Duo</h1>
+                          <div className="line-small-red" />
+                          <div className="stat-container">
+                            <h1 className="label">
+                              Kills
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultduo.default
+                                    .kills
+                                }
+                              </p>
+                            </h1>
+
+                            <span className="label">
+                              Wins
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultduo.default
+                                    .placetop1
+                                }
+                              </p>
+                            </span>
+
+                            <span className="label">
+                              Matches
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultduo.default
+                                    .matchesplayed
+                                }
+                              </p>
+                            </span>
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    )}
+                    {this.state.currentDevice.defaultsquad && (
+                      <React.Fragment>
+                        <div className="card">
+                          <h1 className="category">Squad</h1>
+                          <div className="line-small-red" />
+                          <div className="stat-container">
+                            <h1 className="label">
+                              Kills
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsquad.default
+                                    .kills
+                                }
+                              </p>
+                            </h1>
+
+                            <span className="label">
+                              Wins
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsquad.default
+                                    .placetop1
+                                }
+                              </p>
+                            </span>
+
+                            <span className="label">
+                              Matches
+                              <p className="stat">
+                                {
+                                  this.state.currentDevice.defaultsquad.default
+                                    .matchesplayed
+                                }
+                              </p>
+                            </span>
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    )}
+                  </div>
                 </div>
-                {this.state.currentDevice.defaultsolo && (
-                  <React.Fragment>
-                    <div className="card">
-                      <h1 className="category">Solo</h1>
-                      <div className="line-small-red" />
-                      <div className="stat-container">
-                        <h1 className="label">
-                          Kills
-                          <p className="stat">
-                            {this.state.currentDevice.defaultsolo.default.kills}
-                          </p>
-                        </h1>
-
-                        <span className="label">
-                          Wins
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultsolo.default
-                                .placetop1
-                            }
-                          </p>
-                        </span>
-
-                        <span className="label">
-                          Matches
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultsolo.default
-                                .matchesplayed
-                            }
-                          </p>
-                        </span>
-                      </div>
-                    </div>
-                  </React.Fragment>
-                )}
-                {this.state.currentDevice.defaultduo && (
-                  <React.Fragment>
-                    <div className="card">
-                      <h1 className="category">Duo</h1>
-                      <div className="line-small-red" />
-                      <div className="stat-container">
-                        <h1 className="label">
-                          Kills
-                          <p className="stat">
-                            {this.state.currentDevice.defaultduo.default.kills}
-                          </p>
-                        </h1>
-
-                        <span className="label">
-                          Wins
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultduo.default
-                                .placetop1
-                            }
-                          </p>
-                        </span>
-
-                        <span className="label">
-                          Matches
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultduo.default
-                                .matchesplayed
-                            }
-                          </p>
-                        </span>
-                      </div>
-                    </div>
-                  </React.Fragment>
-                )}
-                {this.state.currentDevice.defaultsquad && (
-                  <React.Fragment>
-                    <div className="card">
-                      <h1 className="category">Squad</h1>
-                      <div className="line-small-red" />
-                      <div className="stat-container">
-                        <h1 className="label">
-                          Kills
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultsquad.default
-                                .kills
-                            }
-                          </p>
-                        </h1>
-
-                        <span className="label">
-                          Wins
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultsquad.default
-                                .placetop1
-                            }
-                          </p>
-                        </span>
-
-                        <span className="label">
-                          Matches
-                          <p className="stat">
-                            {
-                              this.state.currentDevice.defaultsquad.default
-                                .matchesplayed
-                            }
-                          </p>
-                        </span>
-                      </div>
-                    </div>
-                  </React.Fragment>
-                )}
+                <div className="rightSide">
+                  <h1 className="title">Right</h1>
+                </div>
               </div>
               <Link style={{ margin: 0, paddingBottom: 10 + "px" }} to="/">
                 back
