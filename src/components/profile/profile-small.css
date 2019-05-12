@@ -2,6 +2,7 @@
   .title,
   .username {
     font-size: 40px;
+    margin-bottom: 0;
   }
   .stat {
     font-size: 26px;
@@ -11,5 +12,17 @@
   }
   .card {
     width: 100%;
+  }
+  .statbox {
+    width: 90%;
+  }
+  .content-profile {
+    margin-top: 40px;
+    padding-top: 10px;
+    width: 100%;
+  }
+  .category {
+    font-size: 46px;
+    margin: 5px 0 0 7%;
   }
 }

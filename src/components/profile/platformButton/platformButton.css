@@ -1,0 +1,10 @@
+.device {
+  transition: 0.5s;
+  color: #e74c3c;
+  text-shadow: 1px 1px 3px black;
+  margin-right: 5px;
+}
+.device:hover {
+  color: white;
+  cursor: pointer;
+}
