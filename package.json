@@ -9,7 +9,8 @@
     "react-dom": "^16.8.6",
     "react-fade-in": "^0.1.6",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "recharts": "^1.6.0"
   },
   "scripts": {
     "start": "react-scripts start",

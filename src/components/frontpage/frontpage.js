@@ -83,6 +83,7 @@ class Frontpage extends Component {
             <h1 className="title-main">Fortnite Companion</h1>
             <div className="line" />
             <input
+              className="fp-input"
               required={true}
               type="text"
               placeholder="Enter your Epic account"

@@ -6,23 +6,34 @@
   }
   .stat {
     font-size: 26px;
+    text-align: center;
   }
   .label {
     font-size: 36px;
+    margin-right: 7px;
   }
   .card {
     width: 100%;
   }
   .statbox {
-    width: 90%;
+    width: 100%;
+    margin: 0;
   }
   .content-profile {
-    margin-top: 40px;
-    padding-top: 10px;
     width: 100%;
   }
   .category {
-    font-size: 46px;
-    margin: 5px 0 0 7%;
+    margin: 0;
+    font-size: 34px;
+  }
+  .sides-container {
+    flex-direction: column;
+  }
+  .overall-box {
+    width: 90%;
+  }
+  .leftSide,
+  .rightSide {
+    width: 100%;
   }
 }

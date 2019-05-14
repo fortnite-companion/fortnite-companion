@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-input {
+.fp-input {
   box-shadow: 2px 2px 5px black;
   border: 0;
   height: 60px;
@@ -34,7 +34,7 @@ input {
   margin: 30px 0 0 0;
   -webkit-user-select: text; /* MUST BE PRESENT TO WORK ON IPHONES*/
 }
-input:focus {
+.fp-input:focus {
   opacity: 1;
   outline: none !important;
 }

@@ -36,7 +36,7 @@
 }
 .card {
   animation: fadein 0.5s;
-  width: 90%;
+  width: 100%;
   box-shadow: 1px 1px 3px black;
   background: #34495e8a;
   flex-direction: column;
@@ -46,19 +46,27 @@
 
 .platform-selector {
   display: flex;
+  justify-content: center;
 }
 .leftSide,
 .rightSide {
-  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-self: flex-start;
 }
+.leftSide {
+  flex: 2;
+}
+.rightSide {
+  flex: 2;
+}
+
 .statbox {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 80%;
   margin: 10px;
 }
@@ -69,6 +77,7 @@
 }
 
 .category {
+  text-shadow: 1px 1px 3px black;
   color: white;
   margin: 5px 0 0 10%;
   font-size: 50px;
@@ -77,18 +86,17 @@
   margin: 0;
   text-align: center;
 }
-.overall-line {
-  margin-left: 10%;
-}
+
 .label {
   color: #e74c3c;
   text-shadow: 1px 1px 4px black;
-  font-size: 46px;
+  font-size: 36px;
   margin: 0;
   font-weight: 400;
 }
 
 .stat {
+  text-shadow: 1px 1px 3px black;
   color: #ecf0f1;
   font-weight: 400;
   font-size: 36px;
@@ -98,6 +106,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .username {
   color: #e74c3c;
@@ -141,7 +150,10 @@
     color-stop(50%, #e74c3c)
   );
 }
-
+.overall-line {
+  width: 50%;
+  margin-left: 25%;
+}
 link {
   margin: 0;
   padding-bottom: 10px;

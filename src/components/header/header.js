@@ -18,7 +18,7 @@ class Header extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/weapons" className="link-text">
+          <Link to="/weapons" className="link-text locked">
             Weapons (Coming Soon!)
           </Link>
         </div>

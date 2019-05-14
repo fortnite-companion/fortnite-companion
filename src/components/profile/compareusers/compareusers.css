@@ -1,0 +1,68 @@
+.currentuser {
+  color: #ffeaa7;
+}
+.comparetouser {
+  color: #e17055;
+}
+.vs {
+  color: white;
+}
+.inline {
+  display: inline;
+  font-size: 22px;
+  text-shadow: 1px 1px 3px black;
+}
+.compare-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.chart-box {
+  animation: fadein 0.8s;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.compareTo {
+  color: #e74c3c;
+  text-shadow: 1px 1px 3px black;
+}
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  background: #34495e8a;
+  box-shadow: 1px 1px 3px black;
+  width: 100%;
+}
+
+.username-vs-username {
+  display: flex;
+}
+.compare-input {
+  box-shadow: 2px 2px 5px black;
+  border: 0;
+  height: 20px;
+  width: 40%;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 0.9;
+  transition: 0.3s;
+  background-color: #ecf0f1;
+  margin: 0 0 0 5px;
+  -webkit-user-select: text; /* MUST BE PRESENT TO WORK ON IPHONES*/
+}
+
+.compare-input {
+  opacity: 1;
+  outline: none !important;
+}
+.chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

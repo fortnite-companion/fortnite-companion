@@ -7,10 +7,15 @@ import Footer from "../footer/footer";
 import Loading from "../loading/loading";
 import Timer from "../store/timer/timer";
 import PlatformButton from "./platformButton/platformButton";
+import CompareUsers from "./compareusers/compareusers";
 
 class Profile extends Component {
   state = {
     stats: {},
+    calculatedStats: {
+      kdr: 0.0,
+      wlr: 0.0
+    },
     username: "",
     user_id: "",
     loading: false,
@@ -92,7 +97,18 @@ class Profile extends Component {
     }
   };
 
+  calculateKDR = (kills, matchesplayed, wins) => {
+    let kdr = kills / (matchesplayed - wins);
+    return kdr.toFixed(2);
+  };
+  calculateWLR = (matchesplayed, wins) => {
+    let wlr = (wins / matchesplayed) * 100;
+    return wlr.toFixed(1) + "%";
+  };
+
   render() {
+    let overallData = this.state.stats.overallData;
+    let currentDevice = this.state.currentDevice;
     if (this.state.loading) {
       return (
         <React.Fragment>
@@ -116,30 +132,44 @@ class Profile extends Component {
                 />
                 <div className="statbox overall-box">
                   <div className="card">
-                    <h1 className="overall category">Overall</h1>
+                    <h1 className="overall category">Overall Stats</h1>
                     <div className="line-small-red overall-line" />
                     <div className="stat-container">
-                      <h1 className="label">
+                      <span className="label">
                         Kills
+                        <p className="stat">{overallData.defaultModes.kills}</p>
+                      </span>
+                      <span className="label">
+                        K/D
                         <p className="stat">
-                          {this.state.stats.overallData.defaultModes.kills}
+                          {this.calculateKDR(
+                            overallData.defaultModes.kills,
+                            overallData.defaultModes.matchesplayed,
+                            overallData.defaultModes.placetop1
+                          )}
                         </p>
-                      </h1>
+                      </span>
 
                       <span className="label">
                         Wins
                         <p className="stat">
-                          {this.state.stats.overallData.defaultModes.placetop1}
+                          {overallData.defaultModes.placetop1}
+                        </p>
+                      </span>
+                      <span className="label">
+                        Win %
+                        <p className="stat">
+                          {this.calculateWLR(
+                            overallData.defaultModes.matchesplayed,
+                            overallData.defaultModes.placetop1
+                          )}
                         </p>
                       </span>
 
                       <span className="label">
                         Matches
                         <p className="stat">
-                          {
-                            this.state.stats.overallData.defaultModes
-                              .matchesplayed
-                          }
+                          {overallData.defaultModes.matchesplayed}
                         </p>
                       </span>
                     </div>
@@ -148,6 +178,8 @@ class Profile extends Component {
               </div>
               <div className="sides-container">
                 <div className="leftSide">
+                  <h1 className="category">Modes</h1>
+                  <div className="line-red" />
                   <div className="statbox platform-box">
                     <div className="platform-selector">
                       {this.state.devices.map(device => (
@@ -158,29 +190,44 @@ class Profile extends Component {
                         />
                       ))}
                     </div>
-                    {this.state.currentDevice.defaultsolo && (
+                    {currentDevice.defaultsolo && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="category">Solo</h1>
+                          <h1 className="stat">Solo</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
                               Kills
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultsolo.default
-                                    .kills
-                                }
+                                {currentDevice.defaultsolo.default.kills}
                               </p>
                             </h1>
+                            <span className="label">
+                              K/D
+                              <p className="stat">
+                                {this.calculateKDR(
+                                  currentDevice.defaultsolo.default.kills,
+                                  currentDevice.defaultsolo.default
+                                    .matchesplayed,
+                                  currentDevice.defaultsolo.default.placetop1
+                                )}
+                              </p>
+                            </span>
 
                             <span className="label">
                               Wins
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultsolo.default
-                                    .placetop1
-                                }
+                                {currentDevice.defaultsolo.default.placetop1}
+                              </p>
+                            </span>
+                            <span className="label">
+                              Win %
+                              <p className="stat">
+                                {this.calculateWLR(
+                                  currentDevice.defaultsolo.default
+                                    .matchesplayed,
+                                  currentDevice.defaultsolo.default.placetop1
+                                )}
                               </p>
                             </span>
 
@@ -188,7 +235,7 @@ class Profile extends Component {
                               Matches
                               <p className="stat">
                                 {
-                                  this.state.currentDevice.defaultsolo.default
+                                  currentDevice.defaultsolo.default
                                     .matchesplayed
                                 }
                               </p>
@@ -200,65 +247,92 @@ class Profile extends Component {
                     {this.state.currentDevice.defaultduo && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="category">Duo</h1>
+                          <h1 className="stat">Duo</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
                               Kills
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultduo.default
-                                    .kills
-                                }
+                                {currentDevice.defaultduo.default.kills}
                               </p>
                             </h1>
+                            <span className="label">
+                              K/D
+                              <p className="stat">
+                                {this.calculateKDR(
+                                  currentDevice.defaultduo.default.kills,
+                                  currentDevice.defaultduo.default
+                                    .matchesplayed,
+                                  currentDevice.defaultduo.default.placetop1
+                                )}
+                              </p>
+                            </span>
 
                             <span className="label">
                               Wins
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultduo.default
-                                    .placetop1
-                                }
+                                {currentDevice.defaultduo.default.placetop1}
+                              </p>
+                            </span>
+                            <span className="label">
+                              Win %
+                              <p className="stat">
+                                {this.calculateWLR(
+                                  currentDevice.defaultduo.default
+                                    .matchesplayed,
+                                  currentDevice.defaultduo.default.placetop1
+                                )}
                               </p>
                             </span>
 
                             <span className="label">
                               Matches
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultduo.default
-                                    .matchesplayed
-                                }
+                                {currentDevice.defaultduo.default.matchesplayed}
                               </p>
                             </span>
                           </div>
                         </div>
                       </React.Fragment>
                     )}
-                    {this.state.currentDevice.defaultsquad && (
+                    {currentDevice.defaultsquad && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="category">Squad</h1>
+                          <h1 className="stat">Squad</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
                               Kills
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultsquad.default
-                                    .kills
-                                }
+                                {currentDevice.defaultsquad.default.kills}
                               </p>
                             </h1>
+                            <span className="label">
+                              K/D
+                              <p className="stat">
+                                {this.calculateKDR(
+                                  currentDevice.defaultsquad.default.kills,
+                                  currentDevice.defaultsquad.default
+                                    .matchesplayed,
+                                  currentDevice.defaultsquad.default.placetop1
+                                )}
+                              </p>
+                            </span>
 
                             <span className="label">
                               Wins
                               <p className="stat">
-                                {
-                                  this.state.currentDevice.defaultsquad.default
-                                    .placetop1
-                                }
+                                {currentDevice.defaultsquad.default.placetop1}
+                              </p>
+                            </span>
+                            <span className="label">
+                              Win %
+                              <p className="stat">
+                                {this.calculateWLR(
+                                  currentDevice.defaultsquad.default
+                                    .matchesplayed,
+                                  currentDevice.defaultsquad.default.placetop1
+                                )}
                               </p>
                             </span>
 
@@ -266,7 +340,7 @@ class Profile extends Component {
                               Matches
                               <p className="stat">
                                 {
-                                  this.state.currentDevice.defaultsquad.default
+                                  currentDevice.defaultsquad.default
                                     .matchesplayed
                                 }
                               </p>
@@ -278,7 +352,7 @@ class Profile extends Component {
                   </div>
                 </div>
                 <div className="rightSide">
-                  <h1 className="title">Right</h1>
+                  <CompareUsers currentUser={this.state.stats} />
                 </div>
               </div>
               <Link style={{ margin: 0, paddingBottom: 10 + "px" }} to="/">
