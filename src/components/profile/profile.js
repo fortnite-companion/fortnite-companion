@@ -32,7 +32,7 @@ class Profile extends Component {
   componentDidMount() {
     this.getStats();
     this.setState({ currentDevice: this.setInitalCurrentDevice() });
-    setInterval(this.getStats, this.state.updateTimerSeconds * 1000);
+    /* setInterval(this.getStats, this.state.updateTimerSeconds * 1000); AUTO UPDATE TIMER */
   }
   componentWillUnmount() {}
 
@@ -123,13 +123,14 @@ class Profile extends Component {
           <Header />
           <div className="content content-profile-wrapper">
             <div className="content-profile">
+              {/* <Timer
+                text={"Updating in "}
+                seconds={this.state.updateTimerSeconds}
+              /> */}
               <div className="top">
                 <h1 className="username">{this.state.username}</h1>
                 <div className="line-red" />
-                <Timer
-                  text={"Updating in "}
-                  seconds={this.state.updateTimerSeconds}
-                />
+
                 <div className="statbox overall-box">
                   <div className="card">
                     <h1 className="overall category">Overall Stats</h1>
@@ -190,10 +191,10 @@ class Profile extends Component {
                         />
                       ))}
                     </div>
-                    {currentDevice.defaultsolo && (
+                    {currentDevice && currentDevice.defaultsolo && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="stat">Solo</h1>
+                          <h1 className="stat stat-header">Solo</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
@@ -244,10 +245,10 @@ class Profile extends Component {
                         </div>
                       </React.Fragment>
                     )}
-                    {this.state.currentDevice.defaultduo && (
+                    {currentDevice && currentDevice.defaultduo && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="stat">Duo</h1>
+                          <h1 className="stat stat-header">Duo</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
@@ -295,10 +296,10 @@ class Profile extends Component {
                         </div>
                       </React.Fragment>
                     )}
-                    {currentDevice.defaultsquad && (
+                    {currentDevice && currentDevice.defaultsquad && (
                       <React.Fragment>
                         <div className="card">
-                          <h1 className="stat">Squad</h1>
+                          <h1 className="stat stat-header">Squad</h1>
                           <div className="line-small-red" />
                           <div className="stat-container">
                             <h1 className="label">
@@ -360,18 +361,18 @@ class Profile extends Component {
               </Link>
             </div>
           </div>
-          <Footer />
         </React.Fragment>
       );
     }
     return (
-      <div className="content">
-        <h1>{this.state.username}</h1>
-        <Link style={{ margin: 0, paddingBottom: 10 + "px" }} to="/">
-          back
-        </Link>
-        <Footer />
-      </div>
+      <React.Fragment>
+        <div className="content">
+          <h1>{this.state.username}</h1>
+          <Link style={{ margin: 0, paddingBottom: 10 + "px" }} to="/">
+            back
+          </Link>
+        </div>
+      </React.Fragment>
     );
   }
 }

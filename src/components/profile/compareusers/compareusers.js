@@ -10,12 +10,15 @@ class CompareUsers extends Component {
     loading: false,
     compareToUserName: "",
     currentUserStats: {},
-    COLORS: ["#e17055", "#ffeaa7"],
+    COLORS: ["#ffeaa7", "#ecf0f1"],
     RADIAN: Math.PI / 180,
     data: {}
   };
 
   componentDidMount() {
+    if (this.props.compareToUserData) {
+      this.setState({ currentUserStats: this.props.currentUser });
+    }
     this.setState({ currentUserStats: this.props.currentUser });
   }
 
@@ -129,7 +132,19 @@ class CompareUsers extends Component {
       </text>
     );
   };
+
+  calculateKDR = (kills, matchesplayed, wins) => {
+    let kdr = kills / (matchesplayed - wins);
+    return kdr.toFixed(2);
+  };
+  calculateWLR = (matchesplayed, wins) => {
+    let wlr = (wins / matchesplayed) * 100;
+    console.log(matchesplayed, wins);
+    return wlr.toFixed(1) + "%";
+  };
   render() {
+    let currentuserData = this.state.currentUserStats;
+    let compareToUserData = this.state.compareToUserStats;
     if (this.state.loading) {
       return (
         <div className="compare-box">
@@ -143,94 +158,161 @@ class CompareUsers extends Component {
         <div className="compare-box">
           <h1 className="category">Compare</h1>
           <div className="line-red" />
-          {this.state.compareToUserStats && (
+          {currentuserData && (
             <div className="chart-box">
               <div className="username-vs-username">
                 <h3 className="currentuser inline">
-                  {this.state.currentUserStats.epicName}
+                  {currentuserData.epicName}
                 </h3>
                 <h3 className=" vs inline"> vs </h3>
                 <h3 className="comparetouser inline">
-                  {this.state.compareToUserStats.epicName}
+                  {compareToUserData.epicName}
                 </h3>
               </div>
               <div className="charts-container">
-                <div className="chart">
-                  <h3 className="stat">Kills</h3>
-                  <PieChart width={200} height={200}>
-                    <Pie
-                      data={this.state.data.kills}
-                      cx={100}
-                      cy={100}
-                      labelLine={false}
-                      label={this.renderCustomizedLabel}
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                    >
-                      {this.state.data.kills.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={
-                            this.state.COLORS[index % this.state.COLORS.length]
-                          }
-                        />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                  <div className="username-vs-username">
-                    <h3 className="currentuser inline">
-                      {
-                        this.state.currentUserStats.overallData.defaultModes
-                          .kills
-                      }
-                    </h3>
-                    <h3 className="inline vs"> vs </h3>
-                    <h3 className="comparetouser inline">
-                      {
-                        this.state.compareToUserStats.overallData.defaultModes
-                          .kills
-                      }
-                    </h3>
+                <div className="charts-wrapper">
+                  <div className="chart">
+                    <h3 className="label">Kills</h3>
+                    <PieChart width={200} height={200}>
+                      <Pie
+                        data={this.state.data.kills}
+                        cx={100}
+                        cy={100}
+                        labelLine={false}
+                        label={this.renderCustomizedLabel}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {this.state.data.kills.map((entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={
+                              this.state.COLORS[
+                                index % this.state.COLORS.length
+                              ]
+                            }
+                          />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                    <div className="username-vs-username">
+                      <h3 className="currentuser inline">
+                        {
+                          this.state.currentUserStats.overallData.defaultModes
+                            .kills
+                        }
+                      </h3>
+                      <h3 className="inline vs"> vs </h3>
+                      <h3 className="comparetouser inline">
+                        {
+                          this.state.compareToUserStats.overallData.defaultModes
+                            .kills
+                        }
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="chart">
+                    <h3 className="label">Wins</h3>
+                    <PieChart width={200} height={200}>
+                      <Pie
+                        data={this.state.data.wins}
+                        cx={100}
+                        cy={100}
+                        labelLine={false}
+                        label={this.renderCustomizedLabel}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {this.state.data.wins.map((entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={
+                              this.state.COLORS[
+                                index % this.state.COLORS.length
+                              ]
+                            }
+                          />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                    <div className="username-vs-username">
+                      <h3 className="currentuser inline">
+                        {
+                          this.state.currentUserStats.overallData.defaultModes
+                            .placetop1
+                        }
+                      </h3>
+                      <h3 className="inline vs"> vs </h3>
+                      <h3 className="comparetouser inline">
+                        {
+                          this.state.compareToUserStats.overallData.defaultModes
+                            .placetop1
+                        }
+                      </h3>
+                    </div>
                   </div>
                 </div>
-                <div className="chart">
-                  <h3 className="stat">Wins</h3>
-                  <PieChart width={200} height={200}>
-                    <Pie
-                      data={this.state.data.wins}
-                      cx={100}
-                      cy={100}
-                      labelLine={false}
-                      label={this.renderCustomizedLabel}
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                    >
-                      {this.state.data.wins.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={
-                            this.state.COLORS[index % this.state.COLORS.length]
-                          }
-                        />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                  <div className="username-vs-username">
-                    <h3 className="currentuser inline">
-                      {
-                        this.state.currentUserStats.overallData.defaultModes
-                          .placetop1
-                      }
-                    </h3>
-                    <h3 className="inline vs"> vs </h3>
-                    <h3 className="comparetouser inline">
-                      {
-                        this.state.compareToUserStats.overallData.defaultModes
-                          .placetop1
-                      }
-                    </h3>
+                <div class="line-red" />
+
+                <div className="charts-data">
+                  <div>
+                    <h3 className="label">K/D</h3>
+                    <div>
+                      <h3 className="currentuser inline">
+                        {this.calculateKDR(
+                          currentuserData.overallData.defaultModes.kills,
+                          currentuserData.overallData.defaultModes
+                            .matchesplayed,
+                          currentuserData.overallData.defaultModes.placetop1
+                        )}
+                      </h3>
+                      <h3 className=" vs inline"> vs </h3>
+                      <h3 className="comparetouser inline">
+                        {this.calculateKDR(
+                          compareToUserData.overallData.defaultModes.kills,
+                          compareToUserData.overallData.defaultModes
+                            .matchesplayed,
+                          compareToUserData.overallData.defaultModes.placetop1
+                        )}
+                      </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="label">Win %</h3>
+                    <div>
+                      <h3 className="currentuser inline">
+                        {this.calculateWLR(
+                          currentuserData.overallData.defaultModes
+                            .matchesplayed,
+                          currentuserData.overallData.defaultModes.placetop1
+                        )}
+                      </h3>
+                      <h3 className=" vs inline"> vs </h3>
+                      <h3 className="comparetouser inline">
+                        {this.calculateWLR(
+                          compareToUserData.overallData.defaultModes
+                            .matchesplayed,
+                          compareToUserData.overallData.defaultModes.placetop1
+                        )}
+                      </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="label">Matches</h3>
+                    <div>
+                      <h3 className="currentuser inline">
+                        {currentuserData.overallData.defaultModes.matchesplayed}
+                      </h3>
+                      <h3 className=" vs inline"> vs </h3>
+                      <h3 className="comparetouser inline">
+                        {
+                          compareToUserData.overallData.defaultModes
+                            .matchesplayed
+                        }
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -245,7 +327,7 @@ class CompareUsers extends Component {
         <div className="line-red" />
         <div>
           <h3 className="compareTo">
-            Compare {this.state.currentUserStats.epicName} to:
+            Compare {currentuserData.epicName} to:
             <input
               className="compare-input"
               placeholder="Epic username"

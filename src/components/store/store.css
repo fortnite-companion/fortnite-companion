@@ -14,10 +14,10 @@
   height: fit-content;
   animation: fadein 0.5s;
   padding-top: 10px;
-  width: 90%;
+  width: 100%;
   box-shadow: 1px 1px 6px black;
   display: flex;
-  background: #34495e8a;
+  background: #000000a3;
 }
 .content-store-wrapper {
   min-height: 100% !important;

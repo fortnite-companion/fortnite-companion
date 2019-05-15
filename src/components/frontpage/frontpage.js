@@ -102,9 +102,9 @@ class Frontpage extends Component {
               ))}
             </div>
             <button onClick={this.handleSubmit}>Track</button>
-            <Footer />
           </div>
         </div>
+        <Footer />
       </React.Fragment>
     );
   }

@@ -28,12 +28,21 @@
   }
   .sides-container {
     flex-direction: column;
+    width: 100%;
   }
   .overall-box {
-    width: 90%;
+    width: 100%;
   }
   .leftSide,
   .rightSide {
     width: 100%;
+  }
+  .line-small-red {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .username {
+    font-size: 50px;
   }
 }

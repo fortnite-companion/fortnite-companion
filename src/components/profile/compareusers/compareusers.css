@@ -1,11 +1,11 @@
 .currentuser {
-  color: #ffeaa7;
+  color: #ecf0f1;
 }
 .comparetouser {
-  color: #e17055;
+  color: #ffeaa7;
 }
 .vs {
-  color: white;
+  color: #e74c3c;
 }
 .inline {
   display: inline;
@@ -32,8 +32,8 @@
 }
 .charts-container {
   display: flex;
-  justify-content: space-around;
-  background: #34495e8a;
+  flex-direction: column;
+  background: #000000a3;
   box-shadow: 1px 1px 3px black;
   width: 100%;
 }
@@ -46,12 +46,13 @@
   border: 0;
   height: 20px;
   width: 40%;
+  color: white;
   font-size: 18px;
   border-radius: 5px;
   text-align: center;
   opacity: 0.9;
   transition: 0.3s;
-  background-color: #ecf0f1;
+  background-color: #000000a3;
   margin: 0 0 0 5px;
   -webkit-user-select: text; /* MUST BE PRESENT TO WORK ON IPHONES*/
 }
@@ -65,4 +66,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.charts-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.charts-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+text {
+  font-size: 24px;
+  text-shadow: 0px 1px 5px black;
 }
